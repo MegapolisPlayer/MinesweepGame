@@ -1,2 +1,2 @@
-# LabyrintGame
-a (slightly Valentine's themed) labyrinth game
+# MinesweepGame
+a (slightly Valentine's themed) minesweeper (rosesweeper?) game
