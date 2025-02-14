@@ -1,2 +1,2 @@
 # MinesweepGame
-a (slightly Valentine's themed) minesweeper (rosesweeper?) game
+a completely normal minesweeper game... with an easter egg
