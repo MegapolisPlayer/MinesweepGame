@@ -26,7 +26,7 @@ let pressedKeys = [];
 let isEEEnabled;
 
 //easter egg suppression tag
-let IGNORE_EASTER_EGG = true;
+let IGNORE_EASTER_EGG = false;
 
 async function loadImage(filename) {
 	let temp;
@@ -101,7 +101,7 @@ function checkWin() {
 
 function win() {
 	if(isEEEnabled) {
-		document.getElementById("name").textContent = "Good job Anna!";
+		document.getElementById("name").textContent = "Anna, good job at beating the game!";
 	}
 	else {
 		document.getElementById("name").textContent = "You won minesweeper!";
@@ -314,17 +314,19 @@ function reset() {
 function changeSettings() {
 	let newx = "NaN";
 	do {
-		newx = window.prompt("Enter new X size: ");
+		newx = window.prompt("Enter new X size (5 to 100): ");
+		if(newx == null) return;
 	}
 	while(isNaN(newx));
-	arraySizeX = newx;
+	arraySizeX = Math.min(Math.max(5, newx), 100);
 
 	let newy = "NaN";
 	do {
-		newy = window.prompt("Enter new Y size: ");
+		newy = window.prompt("Enter new Y size (5 to 100): ");
+		if(newy == null) return;
 	}
 	while(isNaN(newy));
-	arraySizeY = newy;
+	arraySizeY = Math.min(Math.max(5, newy), 100);
 
 	//amount of mines square root of size
 	amountMines = Math.sqrt(newx*newy);
@@ -348,7 +350,7 @@ window.addEventListener("keydown", (e) => {
 	}
 
 	if(pressedKeys.join('') === "all") {
-		//enableValentineMode();
+		enableValentineMode();
 		pressedKeys = [];
 	}
 })

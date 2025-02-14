@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-	width: 40vw;
+	width: calc(min(768px, 100vw));
 }
 
 button {
