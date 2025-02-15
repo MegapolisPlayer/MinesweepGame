@@ -138,7 +138,7 @@ function reveal(id) {
 	}
 }
 
-function drawField() {
+function drawField(drawMinesOverride = false) {
 	canvasContext.clearRect(0, 0, canvasSizeX, canvasSizeY);
 	for(let i = 0; i < array.length; i++) {
 
@@ -158,7 +158,7 @@ function drawField() {
 			}
 		}
 
-		if(array[i] && !clickAllowed) {
+		if(array[i] && (!clickAllowed || drawMinesOverride)) {
 			canvasContext.drawImage(mineImage, boxSizeX*(i%arraySizeX), boxSizeY*Math.trunc(i/arraySizeX), boxSizeX, boxSizeY);
 		}
 
@@ -183,13 +183,23 @@ function canvasOnClickListener(e) {
 			if(firstClick) {
 				//first click not a loss - move mine
 				do {
-					let id = Math.trunc(Math.random()*array.length);
-					if(!array[id]) {
-						array[id] = true;
+					let nid = Math.trunc(Math.random()*array.length);
+					if(!array[nid]) {
+						array[nid] = true;
+						let neighbors = getNeighborIds(nid);
+						for (n of neighbors) {
+							mineCountArray[n] += 1;
+						}
 						break;
 					}
 				}
 				while(true);
+
+				array[id] = false;
+				let neighbors = getNeighborIds(id);
+				for (n of neighbors) {
+					mineCountArray[n] -= 1;
+				}
 
 				reveal(id);
 
