@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Minesweeper</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<div id="container">
+			<h1 id="name">Minesweeper</h1>
+
+			<button onclick="reset()">Restart game</button><br>
+			<button onclick="changeSettings()">Change settings</button><br>
+			<button class="half" onclick="modeFlag()">Flag mode</button>
+			<button class="half" onclick="modeClear()">Clear mode</button>
+			<hr>
+			Mines amount: <span id="mineamount"></span><br>
+			Mode: <span id="mode"></span><br>
+			<hr>
+			<!-- prevent context menu -->
+			<span id="maincontainer">
+				<canvas id="main"></canvas>
+			</span>
+			<hr>
+			<h3>Controls</h3>
+			<p>
+				Click on the tiles in clear mode to check this tile.
+				Click on the tiles in flag mode to mark the tile as a mine.
+				The game ends when you either click an unmarked mine or when you clear all tiles which are not mines.
+				Alternatively, you can use the right mouse button to flag the mines.
+			</p>
+			<hr>
+			<p>
+				(c) Martin/MegapolisPlayer 2025
+				<br>
+				Code available
+				<a href="https://github.com/MegapolisPlayer/MinesweepGame">here.</a>
+			</p>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>

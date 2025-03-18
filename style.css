@@ -1,0 +1,33 @@
+html {
+	background-color: #707070;
+	color: #ffffff
+}
+
+body {
+	display: grid;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
+
+#container {
+	width: calc(min(768px, 100vw));
+}
+
+button {
+	width: 100%;
+}
+
+.half {
+	width: 49%;
+}
+
+hr {
+	width: 100%;
+}
+
+#main {
+	width: 100%;
+	aspect-ratio: 1;
+	border: 5px solid #000000;
+}
